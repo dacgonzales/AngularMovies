@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="movieApp">
+  <head>
+     
+    <script src="lib/jquery-1.9.1.min.js"></script>    
+    <script src="lib/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">  
+   
+  </head> 
+
+  <body>
+       <div class="container" ng-controller="MovieController">
+
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="MovieLibrary.html">Library<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+            </ul>    
+        </nav>
+
+        <form class="form-horizontal" name="newMovieForm">
+
+            <div class="form-group">
+                <label for="title" class="col-sm-2 control-label">Title</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" ng-model="movie.Title" name="title" id="title"/>    
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="year" class="col-sm-2 control-label">Year</label>
+                <div class="col-sm-2">
+                <input type="text" class="form-control" name="year" ng-model="movie.Year" id="year"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="genre" class="col-sm-2 control-label">Genre</label>
+                <div class="col-sm-2">
+                    <select name="genre" id="genre" class="form-control" ng-model="movie.Genre" >
+                        <option>Action</option>
+                        <option>Comedy</option>
+                        <option>Drama</option>
+                    </select>
+                </div>
+            </div>  
+            
+            <button type="button" class="btn btn-primary" ng-click="saveMovie(movie,newMovieForm)">
+                Press Me Hard
+            </button>
+        </form>
+      </div>
+
+
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-sanitize.js"></script>
+    <script src="/js/movieApp.js"></script>
+    <script src="/js/services/MovieService.js"></script>
+    <script src="/js/controllers/MovieController.js"></script>
+    <script src="/js/controllers/EditMovieDetailsController.js"></script>
+
+  </body>
+</html>

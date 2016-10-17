@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app="movieApp">
+  <head>
+     
+    <script src="lib/jquery-1.9.1.min.js"></script>    
+    <script src="lib/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">  
+   
+  </head> 
+
+  <body>
+     
+
+      <div class="container" ng-controller="MovieController">
+
+        <nav class="navbar navbar-default">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="AddMovie.html">Add movie <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Link</a></li>
+            </ul>    
+        </nav>
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                    <label for="search" class="col-sm-12">Search</label> 
+                    <div class="col-sm-3">                   
+                        <input type="text" id="search" class="form-control" ng-model="query.Title" placeholder="Search title" />
+                    </div>                    
+            </div>
+        </div>        
+        
+        <div class="row">
+            <div class="col-xs-6 col-md-4" ng-repeat="m in movies | orderBy:Title | filter:query">
+                <div class="thumbnail">                
+                    <img src=""  alt="...">
+                    <div class="caption">
+                        <h3>{{m.Title}}</h3>
+                        <p>{{m.Genre}}</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Update</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>           
+            
+        </div>
+
+      </div>
+
+
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-sanitize.js"></script>
+    <script src="/js/movieApp.js"></script>
+    <script src="/js/services/MovieService.js"></script>
+    <script src="/js/controllers/MovieController.js"></script>
+
+  </body>
+</html>
